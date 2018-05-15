@@ -1,3 +1,7 @@
+# How we set up SAML for Redash
+1. Go to the chef environment and set `REDASH_SAML_METADATA_URL`. The correct value for this is available under okta - go to the 'Sign On' tab for your app; the metadata url is the target of the link titled 'Identity Provider metadata'
+
+
 More details about the future of re:dash : http://bit.ly/journey-first-step
 
 ---
