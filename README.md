@@ -1,5 +1,7 @@
 # How we set up SAML for Redash
-1. Go to the chef environment and set `REDASH_SAML_METADATA_URL`. The correct value for this is available under okta - go to the 'Sign On' tab for your app; the metadata url is the target of the link titled 'Identity Provider metadata'
+1. Go to the chef environment and set `REDASH_SAML_METADATA_URL`. The correct value for this is available under okta - go to the 'Sign On' tab for your app; the metadata url is the target of the link titled 'Identity Provider metadata'. Also set `REDASH_SAML_LOGIN_ENABLED` to `True`. Surprisingly enough these are the only environment variables you need to worry about, there are a bunch of other `REDASH_SAML_XX` vars you could set but they aren't relevant.
+
+2. Configure Redash in Okta. The callback url is `https://redash.zp.int/saml/callback`, the identity URI is `https://redash.zp.int/login`. Name ID format should be `EmailAddress`. Add two attribute statements (with an unspecified name format) called FirstName and LastName and set to `user.firstName` and `user.lastName`. 
 
 
 More details about the future of re:dash : http://bit.ly/journey-first-step
